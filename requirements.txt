@@ -1,0 +1,8 @@
+alembic>=1.13,<2
+fastapi>=0.115,<1
+httpx>=0.28,<1
+keyring>=25,<26
+pydantic>=2.10,<3
+PySide6>=6.8,<7
+SQLAlchemy>=2.0,<3
+uvicorn>=0.30,<1

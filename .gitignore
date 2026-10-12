@@ -1,0 +1,47 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Python tooling
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.pytest-*/
+build/
+dist/
+*.egg-info/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Local runtime data (never commit real user data)
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+local-data/
+runtime-data/
+logs/
+
+# React / Node
+node_modules/
+.npm/
+.pnpm-store/
+coverage/
+*.tsbuildinfo
+
+# IDE / OS
+.idea/
+*.user
+*.suo
+.DS_Store
+Thumbs.db

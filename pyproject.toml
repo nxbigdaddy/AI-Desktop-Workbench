@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling>=1.25,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "enterprise-ai-workbench"
+version = "0.1.0"
+description = "Enterprise AI desktop workbench and platform API"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "alembic>=1.13,<2",
+  "fastapi>=0.115,<1",
+  "httpx>=0.28,<1",
+  "keyring>=25,<26",
+  "pydantic>=2.10,<3",
+  "PySide6>=6.8,<7",
+  "SQLAlchemy>=2.0,<3",
+  "uvicorn>=0.30,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.11,<2",
+  "pytest>=8,<9",
+  "ruff>=0.8,<1",
+]
+
+[project.scripts]
+ai-workbench = "ai_desktop.app:run"
+ai-workbench-api = "platform_api.main:run"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ai_desktop", "platform_api"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+# The currently installed Ruff build supports targets through Python 3.12.
+# Source code remains compatible with the project's Python 3.13 deployment baseline.
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+"ai_desktop/icons.py" = ["E501"]
+
+[tool.mypy]
+python_version = "3.13"
+plugins = ["pydantic.mypy"]
+check_untyped_defs = true
+warn_unused_ignores = true
